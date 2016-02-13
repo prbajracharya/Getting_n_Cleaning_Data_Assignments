@@ -1,6 +1,6 @@
-########  Code for course project of  "Getting & Cleaning Data"
+##  Script as per requirement for the course assignment "Getting and Cleaning Data"
 
-######## Load library plyr
+## Load library plyr
 
 library(plyr)
 library(dplyr)
@@ -21,7 +21,7 @@ X_test <- read.table("./test/X_test.txt")
 y_test <- read.table("./test/y_test.txt")
 subject_test <- read.table("./test/subject_test.txt")
 
-######## creating 'x','y', and 'subject_data' sets using rbind--- rowbinding
+## creating 'x','y' and 'subject_data' sets using rowbinding
 X_data <- rbind(X_train, X_test)
 y_data <- rbind(y_train, y_test)
 subject_data <- rbind(subject_train, subject_test)
@@ -31,23 +31,24 @@ subject_data <- rbind(subject_train, subject_test)
 # dim(subject_data)  # [1] 10299     1
 
 
-###########################################################################
+##################################################################################################
 ## Step 2 : Extracts only the measurements on the mean and standard deviation for each measurement. 
-###########################################################################
+##################################################################################################
+
 
 features <- read.table("./features.txt")
 # str(features)   # data.frame':	561 obs. of  2 variables:,$ V1: int  1 2 3 4 5 6 7 8 9 10 and $ V2: Factor w/ 477 levels "angle(tBodyAccJerkMean),gravityMean)",..: 243 244
 
-######## selecting only columns with mean() or std() in their names from features data.frame
+## selecting only columns with mean() or std() in their names from features data.frame
 mean_n_std_features <- grep("-(mean|std)\\(\\)", features[, 2])
 # length(mean_n_std_features)  #[1] 66
 
-######## subset the desired columns in X_data from 561 column to 66 column
+## subset the desired columns in X_data from 561 column to 66 column
 X_data <- X_data[, mean_n_std_features]
 # dim(X_data)        # [1] 10299   66
 # str(X_data)
 
-######## label the corrected column name in X_data from features 
+## label the corrected column name in X_data from features 
 names(X_data) <- features[mean_n_std_features, 2]
 
 
@@ -58,10 +59,10 @@ names(X_data) <- features[mean_n_std_features, 2]
 activity_labels <- read.table("./activity_labels.txt")
 # dim(activity_labels)     #[1] 6 2
 
-######## update values in y_data set by description from activity_labels
+## update values in y_data set by description from activity_labels
 y_data[, 1] <- activity_labels[y_data[, 1], 2]
 
-######## label the column name "activity" in y_data set and "subject" in subject_data
+## label the column name "activity" in y_data set and "subject" in subject_data
 names(y_data) <- "activity"
 
 names(subject_data) <- "subject"
@@ -71,7 +72,7 @@ names(subject_data) <- "subject"
 ## Step 4 : Appropriately labels the data set with descriptive variable names. 
 ###########################################################################
 
-######## assigning labels with descriptive information
+## assigning labels with descriptive information
 
 names(X_data)<-gsub("^t", "time", names(X_data))
 names(X_data)<-gsub("^f", "frequency", names(X_data))
@@ -86,7 +87,7 @@ names(X_data)<-gsub("BodyBody", "Body", names(X_data))
 ##          the average of each variable for each activity and each subject.
 ###########################################################################
 
-########  creating single data set from all 3 data set
+##  creating single data set from all 3 data set
 
 single_data <- cbind(X_data, y_data, subject_data)
 # dim(single_data)    #[1] 10299    68  (last 2 columns are activity and subjcet)

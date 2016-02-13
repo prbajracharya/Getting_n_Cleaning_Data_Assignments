@@ -1,14 +1,14 @@
-INTRODUCTION
+## INTRODUCTION
 
-The script run_analysis.R is created to according to requirement of course project on Getting and Cleaning Datasets
+The script "run_analysis.R" has been created as per requirement for the course assignment "Getting and Cleaning Data".
 
-Merges the training and the test sets to create one data set.
+Training and test sets have been consolidated into a single data set.
 
-This is done by using the rbind() function that is applied to similar kind of data set
+The single data set is prepared by using the rbind() function that is applied to similar kind of data set.
 
-Extracts only the measurements on the mean and standard deviation for each measurement.
+It extracts only the measurements on the mean and standard deviation for each measurement.
 
-features.txt contains column name and grep functin is used to create indices for column named like mean or std
+features.txt contains column name and grep function is used to create indices for column named like mean or std
 
 Uses descriptive activity names to name the activities in the data set.
 

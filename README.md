@@ -1,13 +1,13 @@
-Getting and Cleaning Data - Course Project
+## Getting and Cleaning Data - Assignment
 
-This repository contains the R code and documentation files for the Data Science's course "Getting and Cleaning data", available in coursera.
+This repo consists of the R code and CodeBook for the Coursera Data Science's course "Getting and Cleaning Data".
 
-The dataset being used is: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+Data source used for this assignment is at location "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
-Files
+Files Included :
 
-'CodeBook.md' describes the variables, the data, and any transformations or work that was performed to clean up the data.
+Script : 'run_analysis.R' contains all the code to perform the analysis described in course project requirement
 
-'run_analysis.R' contains all the code to perform the analysis described in course project requirement
+HandBook : 'CodeBook.md' describes the variables, data and any transformations or work that was performed to clean up the data.
 
-The output called 'avg_tidy_data.txt' is uploaded in course projects form.# Getting_n_Cleaning_Data_Assignments
+Output file : 'avg_tidy_data.txt' has been uploaded in coursera assignment submission page.
